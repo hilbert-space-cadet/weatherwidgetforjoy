@@ -4,10 +4,9 @@
     <style>
 #lbl {
     font-family: monospace;
-    font-size: x-large;
-    color: #000000;
+    font-size: xx-large;
+    color: #626262;
     padding: 5px;
-    border: 1px solid #ececec;
     text-align: center;
     line-height: 1.5;
     height:85%
@@ -35,38 +34,37 @@ body{
     weekday[4] = "Thursday";
     weekday[5] = "Friday";
     weekday[6] = "Saturday";
-
-    var month = new Array(13);
-    month[0] = "Placeholder";
-    month[1] = "January";
-    month[2] = "February";
-    month[3] = "March";
-    month[4] = "April";
-    month[5] = "May";
-    month[6] = "June";
-    month[7] = "July";
-    month[8] = "August";
-    month[9] = "September";
-    month[10] = "October";
-    month[11] = "November";
-    month[12] = "December";
+    
+    var month = new Array(12);
+    month[0] = "January";
+    month[1] = "February";
+    month[2] = "March";
+    month[3] = "April";
+    month[4] = "May";
+    month[5] = "June";
+    month[6] = "July";
+    month[7] = "August";
+    month[8] = "September";
+    month[9] = "October";
+    month[10] = "November";
+    month[11] = "December";
     
     var today = new Date();
     var hrs = today.getHours();
     var dayOfWeek = weekday[today.getDay()];
-    var monthName = month[today.getMonth()+1];
-    var date = dayOfWeek+", " + monthName + today.getDate() + " of " today.getFullYear() ;
+    var monthName = month[today.getMonth()];
+    var date = dayOfWeek+", " +monthName+" "+ today.getDate() + " " +today.getFullYear()  ;
 
     var greet;
 
     if (hrs < 12)
-        greet = 'Good morning, Joy! ';
+        greet = 'Good morning, Joy!  ';
     else if (hrs >= 12 && hrs <= 17)
-        greet = 'Hiya, Joy! ';
+        greet = 'Good afternoon ';
     else if (hrs >= 17 && hrs <= 21)
-        greet = 'Good evening, Joy! ';
-    else if (hrs > 21 && <= 24)
-        greet = 'Have a great sleep, Joy! ';
+        greet = 'Good evening, Joy!  ';
+    else if (hrs > 21 && hrs <= 24)
+        greet = 'Sleep well, Joy! ';
 
     document.getElementById('lbl').innerHTML =
         greet+=`<div id="date"> It's ${date}</div>`;
